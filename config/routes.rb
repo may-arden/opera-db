@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :notes
+  resources :songs
   get '/' => 'sessions#welcome'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

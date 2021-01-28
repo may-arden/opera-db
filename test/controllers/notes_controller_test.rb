@@ -1,6 +1,6 @@
 require "test_helper"
 
-class AriaTest < ActiveSupport::TestCase
+class NotesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
