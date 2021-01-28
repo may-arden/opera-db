@@ -1,0 +1,2 @@
+class AriasController < ApplicationController
+end
