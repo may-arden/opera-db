@@ -1,0 +1,2 @@
+class OperasController < ApplicationController
+end
