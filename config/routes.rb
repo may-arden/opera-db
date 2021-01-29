@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   get '/' => 'sessions#welcome'
-  # building functionality for user login; need view page
+  # building functionality for user login
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  # building functionality for user sign up; need view page 
+  # building functionality for user sign up
   get '/signup' => 'users#new' 
+  # why is there no #post requirement for signup? 
+  delete '/logout' => 'sessions#destroy'
 
   resources :users
   resources :operas
