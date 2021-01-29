@@ -1,11 +1,12 @@
 <h1>login</h1>
 
+
 <%= form_for(@user) do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
 
   <%= f.label :password %>
-  <%= f.text_field :password_digest %>
+  <%= f.password_field :password_digest %>
 
-  <%= f.submit "log in "%>
+  <%= f.submit "log in" %>
 <% end %>

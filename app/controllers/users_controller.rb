@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def index
-        @users = User.abc
+        @users = User.new 
     end
 
     def new
@@ -27,7 +27,8 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :password)
+        # take the params, require object that comes through our params and then permit any other params we want
+        params.require(:user).permit(:username, :email, :password_digest)
     end 
 
 end

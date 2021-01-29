@@ -1,4 +1,4 @@
-<%= render partial: 'layouts/header', locals: {object: @user} %>
+
 
 <h1>sign up</h1>
 
@@ -7,7 +7,7 @@
   <%= f.text_field :username %>
 
   <%= f.label :password %>
-  <%= f.text_field :password_digest %>
+  <%= f.password_field :password_digest %>
 
   <%= f.submit "sign up" %>
 <% end %>
