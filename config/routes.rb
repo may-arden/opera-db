@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   get '/' => 'sessions#welcome'
   # building functionality for user login; need view page
   get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
   # building functionality for user sign up; need view page 
-  get '/signup' => 'sessions#create'
+  get '/signup' => 'users#new' 
 
   resources :users
   resources :operas
