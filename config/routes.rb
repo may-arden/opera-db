@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
   get '/' => 'sessions#welcome'
+  # building functionality for user login; need view page
+  get '/login' => 'sessions#new'
+  # building functionality for user sign up; need view page 
+  get '/signup' => 'sessions#create'
+
   resources :users
   resources :operas
   resources :songs
