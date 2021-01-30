@@ -1,22 +1,25 @@
-<%= locals: {object: @song} %>
 
-enter song title:
-<% form_for(@song) do |f| %>
+
+
+<%= form_for(@song) do |f| %>
   <div>
-    <%= f.label :title %>
+    song title
     <%= f.text_field :title %>
   </div>
-  <div>
-  select an opera that already exists:
-  <div>
-  <%= f.collection_select :opera_id, Opera.all, :id, :name, include_blank: 'select one' %>
-  </div>
-  or enter a new opera:
-  <div>
-    <%= f.fields_for :opera do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <br>
+  <div> 
+<%= f.fields_for :opera do |o|%>
+    name of opera 
+  <%= o.text_field :name %>
 <% end %>
 
+</div>
+
+  <br>
+  <%= f.submit %>
 <% end %>
+
+
+
+
 

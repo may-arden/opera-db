@@ -16,13 +16,21 @@ class SongsController < ApplicationController
     end 
 
     def index 
-      @songs = Songs.all
+      @songs = Song.all
     end 
 
     def show
+        @song = Song.find(params[:id])
+        
     end 
 
     def edit
+    end 
+
+    private 
+
+    def song_params
+      params.require(:song).permit(:title, :opera, :song_id, :user_id)
     end 
 
 end

@@ -3,11 +3,11 @@
 <h1>sign up</h1>
 
 <%= form_for(@user) do |f| %>
-  <%= f.label :username %>
+  username
   <%= f.text_field :username %>
-
-  <%= f.label :password %>
+<br>
+  password 
   <%= f.password_field :password_digest %>
-
+<br>
   <%= f.submit "sign up" %>
 <% end %>
