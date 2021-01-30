@@ -25,6 +25,8 @@ class UsersController < ApplicationController
         # redirect to '/' if !@user
     end 
 
+ 
+
     private
 
     def user_params

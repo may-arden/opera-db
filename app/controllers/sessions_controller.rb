@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
     end 
 
     def destroy
+        # should this be username or user_id?
         session.delete(:user_id)
         redirect_to '/'
     end
