@@ -1,0 +1,15 @@
+<h3>please enter your song information here</h3>
+
+<% form_for(@song) do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= text_field :title %>
+  </div>
+  <div>
+    <%= f.label :opera %>
+    <%= text_field :opera %>
+  </div>
+  <div>
+    <%= f.label :note %>
+    <%= text_field :note %>
+  </div>
