@@ -1,1 +1,5 @@
-<h1> songs index page </h1>
+<h1> all songs </h1>
+
+<% @songs.each do |song| %>
+  <p><%= song.title %> - <%= song.opera.name %></p>
+<% end %>
