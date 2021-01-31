@@ -6,6 +6,7 @@ class Song < ApplicationRecord
 
 # instance method which displays the song title & the name of the opera it belongs to
   def title_and_opera
+    "#{self.title} - #{self.opera.name}"
   end 
 
 end
