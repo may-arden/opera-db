@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   resources :notes
   resources :operas
   resources :songs
-
-
   resources :users
   
 

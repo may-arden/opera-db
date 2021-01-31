@@ -11,6 +11,7 @@ class SongsController < ApplicationController
         if @song.save
           redirect_to song_path(@song)
         else 
+         
           render :new  
         end 
     end 
@@ -30,7 +31,7 @@ class SongsController < ApplicationController
     private 
 
     def song_params
-      params.require(:song).permit(:title, :user_id, :opera_id, opera_attributes: [:user_id])
+      params.require(:song).permit(:title, :user_id, :opera_id, opera_attributes: [:name])
     end 
 
 end
