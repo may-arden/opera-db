@@ -7,8 +7,11 @@ class SongsController < ApplicationController
 
     def create
       @song = Song.new(song_params)
+      
       @song.user_id = session[:user_id]
+      
         if @song.save
+          
           redirect_to song_path(@song)
         else 
          
@@ -31,7 +34,7 @@ class SongsController < ApplicationController
     private 
 
     def song_params
-      params.require(:song).permit(:title, :user_id, :opera_id, opera_attributes: [:name])
+      params.require(:song).permit(:title)
     end 
 
 end

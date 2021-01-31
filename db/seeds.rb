@@ -7,3 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 operas = Opera.create([{name: 'la boheme'}])
+
+operas = Opera.create([{name: 'the magic flute'}, {name: 'i capuleti e i montecchi'}, {name: 'faust'}, 
+    {name: 'turandot'}, {name: 'einstein on the beach'}, {name: 'street scene'}, {name: 'madame butterfly'}, 
+    {name: 'norma'}, {name: 'les dialogues des carmelites'}, {name: 'don carlo'}])

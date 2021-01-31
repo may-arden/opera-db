@@ -1,13 +1,11 @@
 
-
-
 <%= form_for(@song) do |f| %>
   <div>
     song title
     <%= f.text_field :title %>
   </div>
   <br>
-  <div> 
+  <div>
     select the name of the opera
     <%= f.collection_select :opera_id, Opera.all, :id, :name, include_blank: 'select one' %>
 <br>
@@ -22,8 +20,4 @@
   <br>
   <%= f.submit %>
 <% end %>
-
-
-
-
 
