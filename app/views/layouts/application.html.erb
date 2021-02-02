@@ -11,6 +11,11 @@
   </head>
 
   <body>
+      <div>
+      <%= link_to "all songs", songs_path %> |
+      <%= link_to "add a new song", new_song_path %>  |
+      <%= link_to "all operas", operas_path %> |
+    </div>
     <%= yield %>
   </body>
 </html>
