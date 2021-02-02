@@ -14,3 +14,5 @@ no thanks nevermind
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
   <input type=submit value='logout'>
 <% end %>
+
+<%= link_to "delete", song_path(@song), method: 'delete' %>

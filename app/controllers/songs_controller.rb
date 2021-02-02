@@ -33,12 +33,25 @@ class SongsController < ApplicationController
     end 
 
     def update
+      @song = Song.find(params[:id])
+      @song.update(song_params)
+        if @song.valid? 
+          redirect_to song_path
+        else 
+          render :edit
+        end 
+    end 
+
+    def destroy
+      @song = Song.find(params[:id])
+      @song.destroy
+      redirect_to songs_path
     end 
 
     private 
 
     def song_params
-      params.require(:song).permit(:title)
+      params.require(:song).permit(:title, :opera, :opera_id)
     end 
 
 end
