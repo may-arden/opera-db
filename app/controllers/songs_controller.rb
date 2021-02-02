@@ -3,7 +3,6 @@ class SongsController < ApplicationController
     def new
       @song = Song.new
       @song.build_opera
-       
     end
 
     def create
@@ -12,10 +11,8 @@ class SongsController < ApplicationController
       @song.user_id = session[:user_id]
       
         if @song.save
-          
           redirect_to song_path(@song)
         else 
-         
           render :new  
         end 
     end 
@@ -26,7 +23,6 @@ class SongsController < ApplicationController
 
     def show
         @song = Song.find(params[:id])
-        
     end 
 
     def edit

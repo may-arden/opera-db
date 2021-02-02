@@ -1,1 +1,5 @@
 opera index view 
+
+<% @operas.each do |opera| %>
+<p> <%= link_to opera.name, opera_path(opera.id) %>
+<% end %>

@@ -1,7 +1,8 @@
 class OperasController < ApplicationController
 
     def index
-        @operas = Opera.alpha 
+        @operas = Opera.all
+        render :index 
     end 
     
 end
