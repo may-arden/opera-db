@@ -2,6 +2,7 @@ class SongsController < ApplicationController
 
     def new
       @song = Song.new
+      @song.build_opera
        
     end
 
@@ -51,7 +52,7 @@ class SongsController < ApplicationController
     private 
 
     def song_params
-      params.require(:song).permit(:title, :opera, :opera_id)
+      params.require(:song).permit(:title, :opera, :opera_id, :name)
     end 
 
 end

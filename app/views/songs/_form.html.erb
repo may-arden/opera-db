@@ -5,12 +5,10 @@
     <%= f.text_field :title %>
   </div>
   <br>
-  <div>
-    select the name of the opera
-    <%= f.collection_select :opera_id, Opera.all, :id, :name, include_blank: 'select one' %>
+  
 <br>
 <br>
- or add a new one
+opera name 
   <%= f.fields_for :opera do |o| %>
   <%= o.text_field :name %>
 <% end %>
