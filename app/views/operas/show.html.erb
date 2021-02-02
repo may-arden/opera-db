@@ -1,0 +1,6 @@
+opera show page 
+
+<h1> <%= @opera.name %></h1>
+<h2> <% @opera.songs.each do |song| %> </h2>
+<h2> <%= link_to song.title, song_path(song.id) %></h2>
+<% end %>
