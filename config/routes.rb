@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post] 
   # get '/' => 'welcome#home'
 
+  get '/auth/:provider/callback' => 'sessions#omniauth'
+
   get '/' => 'sessions#welcome'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
