@@ -27,13 +27,19 @@ class UsersController < ApplicationController
         redirect to '/' if !@user
     end 
 
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        session.delete(:user_id)
+        redirect_to '/'
+    end 
  
 
     private
 
     def user_params
         # take the params, require object that comes through our params and then permit any other params we want
-        params.require(:user).permit(:username, :email, :password_digest)
+        params.require(:user).permit(:username, :password)
     end 
 
 end

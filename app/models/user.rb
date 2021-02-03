@@ -4,6 +4,8 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    validates :username, presence: true, uniqueness: { message: "%{value} is already in use, please try something else "}
+    validates :username, presence: true
+
+    # uniqueness: { message: "%{value} is already in use, please try something else" }
 
 end
