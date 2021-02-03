@@ -1,10 +1,10 @@
     <div>
       <br><br>
       <%= link_to "log out", logout_path, method: :delete %> |
+      <%= link_to "home", users_path(@user) %> |
       <%= link_to "view all songs", songs_path %> |
       <%= link_to "add a new song", new_song_path %>  |
       <%= link_to "view all operas", operas_path %> |
-      <%= link_to "home", users_path(@user) %> |
-      <%= link_to "view most recent note", note_path(@note) %>
-      <% # scope method will need to define a variable @note
+      <%= link_to "view most recent note", note_path(Note.most_recent.id) %>
+     
     </div>
