@@ -1,13 +1,14 @@
 class NotesController < ApplicationController
 
   def new
-    @note = Note.new(note_params)
-    @note.user_id = session [:user_id]
+    @song = Song.find_by_id(params[:song_id])
+    @note = Note.new(song_id: @song.id)
+    # @note.user_id = session[:user_id]
   end
 
   def create
-    @song = Song.find_by_id(params[:movie_id])
-    @note = curent_user.notes.build(note_params)
+    @song = Song.find_by_id(params[:song_id])
+    @note = current_user.notes.build(note_params)
       if @note.save
         redirect_to song_path(@song)
       else 
@@ -15,8 +16,25 @@ class NotesController < ApplicationController
       end 
   end 
 
+  def index
+    @notes = Note.all 
+  end 
+
   def show 
-    @note = Note.find_by_id(params[:id])
+    
+    @song = Song.find_by_id(params[:song_id])
+
+      @note = Note.find_by_id(params[:id])
+    @notes = Note.all 
+
+  end 
+
+
+
+  private
+
+  def note_params
+    params.require(:note).permit(:title, :content, :song_id, :user_id)
   end 
 
 end

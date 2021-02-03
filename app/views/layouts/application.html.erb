@@ -9,13 +9,10 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+ <div><%= render_nav_bar %></div>
   <body>
-      <div>
-      <%= link_to "all songs", songs_path %> |
-      <%= link_to "add a new song", new_song_path %>  |
-      <%= link_to "all operas", operas_path %> |
-    </div>
+
     <%= yield %>
+
   </body>
 </html>

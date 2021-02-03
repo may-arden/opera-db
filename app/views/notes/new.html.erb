@@ -1,40 +1,8 @@
-
-
-
-
-
-# create a form here for note submission ... should just be a text box in which user can write
-# a string 
-
-# or should it be a single form to enter everything into ... 
-
-song title: "quando m'en vo"
-opera title: "la boheme"
-note contents: "this is where user will write a note about the song and its context within the story"
-
-submit. 
-
---
-
-i want the user to have the following functionality:
-
-log out
-
-add a song ('songs/new') where the user can save song title 
-
-look at a list of all song titles for which user has saved notes ('songs/index')
-and be able to click on the title to take them to that specific song page where the notes live
-
-look at a specific song ('songs/show') which has the notes for the song 
-displayed below its title & opera to which it belongs, eg:
-
-jewel song / FAUST
-"note is displayed here"
-
-add a note ('notes/new') using a form 
-
-look at all notes ('notes/show') which will display the song title & opera title above the body of the note
-
-look at all opera titles for which user has saved notes & songs ('operas/index') ??
-
-be able to navigate back home - '/users/show'
+<%= form_for([@song, @note]) do |f| %><br>
+  note title 
+  <%= f.text_field :title %><br>
+  wrote your note here 
+  <%= f.text_area :content %>
+  <%= f.hidden_field :song_id %><br>
+  <%= f.submit %>
+<% end %>

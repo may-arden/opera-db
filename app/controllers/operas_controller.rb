@@ -7,7 +7,6 @@ class OperasController < ApplicationController
 
     def show
         @opera = Opera.find(params[:id])
-        
     end 
     
 end

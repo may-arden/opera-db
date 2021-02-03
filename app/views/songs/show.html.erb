@@ -1,18 +1,8 @@
-you have entered <h1><%= @song.title %></h1>
+<h1><%= @song.title %></h1>
 
 from the opera <h2> <%= @song.opera.name %></h2> 
+<p><%= link_to "see the notes you've written about this song", song_notes_path(@song) %></p>
+<p><%= link_to "write a new note", new_song_note_path(@song) %><p>
+<p><%= link_to "remove song from collection", song_path(@song), method: 'delete' %><p>
 
-would you like to write down some thoughts?
-<br>
-<br>
-button 'write a note'
-<br>
-<br>
-no thanks nevermind
-<br>
-<br>
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-  <input type=submit value='logout'>
-<% end %>
 
-<%= link_to "delete", song_path(@song), method: 'delete' %>
