@@ -1,6 +1,7 @@
 class Opera < ApplicationRecord
     has_many :songs 
-    validates :name, presence: true, uniqueness: true
+    validates :name, presence: true
+
 
 
     def opera_attributes=(attributes)
