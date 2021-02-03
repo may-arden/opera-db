@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     def index
         @user = User.find_by_id(params[:id])
         # redirect_to user_path(@user.id)
-        render :index
+        redirect_to '/'
     end
 
     def new

@@ -17,6 +17,7 @@ class NotesController < ApplicationController
   end 
 
   def index
+    @song = Song.find_by_id(params[:song_id])
     @notes = Note.all 
   end 
 

@@ -7,14 +7,14 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new' 
-  post '/logout' => 'sessions#destroy'
+  delete '/logout' => 'sessions#destroy'
 
 
   resources :notes
   resources :operas
 
   resources :songs do
-    resources :notes, only: [:new, :create, :index]
+    resources :notes, only: [:new, :create, :index, :show]
   end 
 
   resources :users
