@@ -1,11 +1,4 @@
 <h1>sign up</h1>
 
-<%= form_for(@user) do |f| %>
-  username
-  <%= f.text_field :username %>
+<p><%= render partial: 'form' %></p>
 
-  password
-  <%= f.password_field :password %>
-<br><br>
-  <%= f.submit "sign up" %>
-<% end %>

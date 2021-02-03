@@ -10,10 +10,12 @@ class SongsController < ApplicationController
       
       @song.user_id = session[:user_id]
       
-        if @song.save
+        if 
+          @song.save
           redirect_to song_path(@song)
         else 
-          render :new  
+          @error = "please make sure to fill in both fields"
+          render :new 
         end 
     end 
 
@@ -35,6 +37,7 @@ class SongsController < ApplicationController
         if @song.valid? 
           redirect_to song_path
         else 
+          @error = "please make sure to fill in both fields"
           render :edit
         end 
     end 

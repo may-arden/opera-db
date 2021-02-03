@@ -4,7 +4,7 @@ class Song < ApplicationRecord
   has_many :notes
   has_many :users, through: :notes 
   validates :title, presence: true
-  validates :opera, presence: :true 
+  validates :opera_id, presence: :true
 
   # presence true, length etc
   # make a partial for errors 

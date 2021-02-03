@@ -12,6 +12,7 @@ class NotesController < ApplicationController
       if @note.save
         redirect_to song_path(@song)
       else 
+        @error = "please make sure to fill in both fields"
         render :new
       end 
   end 
@@ -22,15 +23,15 @@ class NotesController < ApplicationController
   end 
 
   def show 
-    
+    redirect_if_not_logged_in
     @song = Song.find_by_id(params[:song_id])
-
-      @note = Note.find_by_id(params[:id])
+    @note = Note.find_by_id(params[:id])
     @notes = Note.all 
 
   end 
 
   def edit
+    redirect_if_not_logged_in
     @note = Note.find_by_id(params[:id])
   end 
 
@@ -40,6 +41,7 @@ class NotesController < ApplicationController
       if @note.valid? 
         redirect_to note_path
       else 
+        @error = "please make sure to fill in both fields"
         render :edit
       end 
   end 

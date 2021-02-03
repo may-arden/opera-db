@@ -16,16 +16,18 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
-            redirect_to signup_path
+            @error = "please try a different username"
+            render :new
         end 
     end 
 
     def show
         redirect_if_not_logged_in
         @user = User.find_by_id(params[:id])
+        render :show 
         # this will avoid error page if they're not logged in 
-        redirect to '/' if !@user
     end 
+
 
     def destroy
         @user = User.find(params[:id])
