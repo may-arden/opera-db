@@ -1,5 +1,6 @@
-<p>these are the notes you've saved for the song <h1><%= @song.title %></h1><p><br>
-from the opera <h2><%= @song.opera.name %></h2> 
+<h1>all notes</h1>
+
+
 <p><% @notes.each do |note| %><p> 
-   <%= note.content %>
+  <%= link_to(note.title, note_path(note.id) ) %>
 <% end %>
