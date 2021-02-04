@@ -11,9 +11,7 @@ class Note < ApplicationRecord
 
 
 
-  ## above scope method allows us to call
-  # Note.published.featured.latest_
-  # Note.featured.title
+  ## above scope method allows us to call most recently published note 
 
 
 end

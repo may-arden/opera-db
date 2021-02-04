@@ -1,9 +1,5 @@
 class SongsController < ApplicationController
 
-  before_action :redirect_if_not_logged_in
-  before_action :redirect_if_not_authorized
-
-
     def new
       @song = Song.new
       @song.build_opera
@@ -23,16 +19,16 @@ class SongsController < ApplicationController
     end 
 
     def index
-      @songs = Song.all
+      @songs = Song.all 
+      @songs
     end 
 
     def show
-      redirect_if_not_logged_in
-      redirect_if_not_authorized
         @song = Song.find(params[:id])
     end 
 
     def edit
+      redirect_if_not_authorized
       @song = Song.find(params[:id])
     end 
 
@@ -41,8 +37,7 @@ class SongsController < ApplicationController
       @song.update(song_params)
         if @song.valid? 
           redirect_to song_path
-        else 
-          @error = "please make sure to fill in both fields"
+        else
           render :edit
         end 
     end 

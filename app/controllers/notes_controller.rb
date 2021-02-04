@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
 
-  # before_action :redirect_if_not_authorized, :redirect_if_not_logged_in
+  # before_action :redirect_if_not_authorized
+  # before_action :redirect_if_not_logged_in
 
   def new
     @song = Song.find_by_id(params[:song_id])
@@ -20,11 +21,12 @@ class NotesController < ApplicationController
 
   def index
     @song = Song.find_by_id(params[:song_id])
-    @notes = Note.all 
+    # @notes = Note.find_by(params[:song_id])
+    # byebug
+    @notes = @song.notes 
   end 
 
   def show 
-    redirect_if_not_logged_in
     @song = Song.find_by_id(params[:song_id])
     @note = Note.find_by_id(params[:id])
     @notes = Note.all 
@@ -32,7 +34,6 @@ class NotesController < ApplicationController
   end 
 
   def edit
-    redirect_if_not_logged_in
     @note = Note.find_by_id(params[:id])
   end 
 

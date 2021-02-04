@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
             redirect_to user_path(@user)
         else 
             @error = "please be sure to fill in both fields"
-            render :new 
+            render :new  
         end 
 
     end 

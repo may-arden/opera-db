@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_secure_password
 
     validates :username, presence: true, uniqueness: { message: "%{value} is already in use, please select a different username"}
-    validates :password, presence: true 
+  
 
     def self.from_omniauth(response)
         User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|

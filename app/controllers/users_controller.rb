@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+# before_action :redirect_if_not_authorized
+# before_action :redirect_if_not_logged_in
 
     def index
         @user = User.find_by_id(params[:id])
@@ -20,8 +22,6 @@ class UsersController < ApplicationController
     end 
 
     def show
-        redirect_if_not_logged_in
-        redirect_if_not_authorized
         @user = User.find_by_id(params[:id]) 
     end 
 

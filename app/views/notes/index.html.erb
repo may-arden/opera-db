@@ -2,10 +2,6 @@
 
 
 <p><% @notes.each do |note| %><p> 
-  <% if note.user_id == current_user.id %>
   <%= link_to(note.title, note_path(note.id) ) %>
-  <% else %>
-    <% redirect_to '/' and return if !logged_in? %>
-  <% end %>
 <% end %>
 

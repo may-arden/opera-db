@@ -1,9 +1,12 @@
+
 <h1><%= @song.title %></h1>
 
 from the opera <h2> <%= @song.opera.name %></h2> 
-<p><%= link_to "see the notes you've written about this song", song_notes_path(@song) %></p>
+<p><%= link_to "see the notes that have been written about this song", song_notes_path(@song) %></p>
 <p><%= link_to "edit this song's information", edit_song_path(@song) %></p>
 <p><%= link_to "write a new note about this song", new_song_note_path(@song) %></p>
 <p><%= link_to "delete song", song_path(@song), method: 'delete' %><p>
+
+
 
 
