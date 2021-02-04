@@ -2,9 +2,12 @@
 
 
 <% @songs.each do |song| %>
-<% if song.user_id == current_user.id %>
-<p><%= link_to(song.title_and_opera, song_path(song.id) )%></p>
-<% else %>
-<% redirect_to '/' and return if !logged_in? %>
+
+  <% if song.user_id == current_user.id %>
+  <p><%= link_to(song.title_and_opera, song_path(song.id) )%></p>
+  <% else %>
+    <% redirect_to '/' and return if !logged_in? %>
+  <% end %>
+
 <% end %>
-<% end %>
+
