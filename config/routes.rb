@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   get '/notes/most_recent' => 'notes#most_recent'
   resources :notes
 
-
-
   resources :operas
 
   resources :songs do

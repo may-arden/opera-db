@@ -14,11 +14,7 @@ Copyright: I don't own any of the data, it's mostly public domain or belonging t
 
 License: Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) Details available here: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
-STATUS: meets project requirements 
+STATUS: meets project requirements, excited to add more styling down the road
 
-CONTRIBUTORS: 
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
+CONTRIBUTORS: just me so far!
 
