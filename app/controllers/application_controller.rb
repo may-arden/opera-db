@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
         redirect_to '/' and return if !logged_in?
     end 
 
+    def redirect_if_not_authorized
+        if @user != current_user
+            redirect_to '/' and return if !logged_in?
+        end 
+    end 
+
     
 
 

@@ -1,5 +1,7 @@
 class NotesController < ApplicationController
 
+  # before_action :redirect_if_not_authorized, :redirect_if_not_logged_in
+
   def new
     @song = Song.find_by_id(params[:song_id])
     @note = Note.new(song_id: @song.id)

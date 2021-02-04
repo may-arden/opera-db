@@ -1,5 +1,6 @@
 class OperasController < ApplicationController
-
+    # before_action :redirect_if_not_logged_in, :redirect_if_not_authorized
+   
     def index
         @operas = Opera.all
         render :index 

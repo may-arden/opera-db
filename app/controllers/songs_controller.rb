@@ -1,5 +1,9 @@
 class SongsController < ApplicationController
 
+  before_action :redirect_if_not_logged_in
+  before_action :redirect_if_not_authorized
+
+
     def new
       @song = Song.new
       @song.build_opera
@@ -19,11 +23,13 @@ class SongsController < ApplicationController
         end 
     end 
 
-    def index 
+    def index
       @songs = Song.all
     end 
 
     def show
+      redirect_if_not_logged_in
+      redirect_if_not_authorized
         @song = Song.find(params[:id])
     end 
 

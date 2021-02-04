@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
     def index
         @user = User.find_by_id(params[:id])
-        # redirect_to user_path(@user.id)
         redirect_to '/'
     end
 
@@ -16,22 +15,26 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
-            @error = "please try a different username"
             render :new
         end 
     end 
 
     def show
         redirect_if_not_logged_in
-        @user = User.find_by_id(params[:id])
+        redirect_if_not_authorized
+        @user = User.find_by_id(params[:id]) 
     end 
 
 
     def destroy
-        @user = User.find(params[:id])
-        @user.destroy
-        session.delete(:user_id)
-        redirect_to '/'
+        if @user != current_user
+            redirect_to user_path
+        else 
+            @user = User.find(params[:id])
+            @user.destroy
+            session.delete(:user_id)
+            redirect_to '/'
+        end 
     end 
  
 
