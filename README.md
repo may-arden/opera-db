@@ -4,7 +4,7 @@ this app allows a singer to write notes regarding character development relating
 
 how to get started:
 
-*This project was made with Ruby version: ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-linux]
+*This project was made with Ruby version: ruby 2.6.1
 *Fork a copy and download the files from https://github.com/may-arden/opera-db
 *Make sure you bundle install after cloning it.
 *Run rails db:migrate to fill the database.
