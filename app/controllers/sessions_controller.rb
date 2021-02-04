@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
-            @error = "please be sure to fill in both fields"
+            @error = "please be sure to fill in both fields and that your password is correct"
             render :new  
         end 
 

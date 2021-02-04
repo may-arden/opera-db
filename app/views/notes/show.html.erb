@@ -2,6 +2,9 @@
 <h1><%= @note.title %></h1>
 <p><%= @note.content %></p>
 
+<br><br>
+<%= @error %>
+<br><br>
+
 <p><%= link_to "edit this note", edit_note_path(@note) %></p>
 <p><%= link_to "delete note", note_path(@note), method: 'delete' %><p>
-

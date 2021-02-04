@@ -6,7 +6,6 @@ class NotesController < ApplicationController
   def new
     @song = Song.find_by_id(params[:song_id])
     @note = Note.new(song_id: @song.id)
-    # @note.user_id = session[:user_id]
   end
 
   def create
@@ -21,8 +20,6 @@ class NotesController < ApplicationController
 
   def index
     @song = Song.find_by_id(params[:song_id])
-    # @notes = Note.find_by(params[:song_id])
-    # byebug
     @notes = @song.notes 
   end 
 
@@ -30,16 +27,20 @@ class NotesController < ApplicationController
     @song = Song.find_by_id(params[:song_id])
     @note = Note.find_by_id(params[:id])
     @notes = Note.all 
-
   end 
 
   def edit
     @note = Note.find_by_id(params[:id])
+    if @note.user_id != current_user.id 
+      @error = "this is not your note - editing is not permitted"
+      render :show
+    end 
   end 
 
   def update
     @note = Note.find(params[:id])
     @note.update(note_params)
+    byebug
       if @note.valid? 
         redirect_to note_path
       else 

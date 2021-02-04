@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post] 
-  # get '/' => 'welcome#home'
-
   get '/auth/:provider/callback' => 'sessions#omniauth'
 
   get '/' => 'sessions#welcome'
@@ -10,7 +7,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new' 
   delete '/logout' => 'sessions#destroy'
-
 
   resources :notes
   resources :operas
@@ -20,7 +16,6 @@ Rails.application.routes.draw do
   end 
 
   resources :users
-  
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
