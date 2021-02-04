@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
 
     def new
       @song = Song.new
