@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-# before_action :redirect_if_not_authorized
-# before_action :redirect_if_not_logged_in
 
     def index
         @user = User.find_by_id(params[:id])

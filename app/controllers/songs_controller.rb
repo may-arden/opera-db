@@ -20,8 +20,7 @@ before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
     end 
 
     def index
-      @songs = Song.all 
-      @songs
+      @songs = Song.all
     end 
 
     def show
@@ -31,6 +30,7 @@ before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
     def edit
       redirect_if_not_authorized
       @song = Song.find(params[:id])
+      # byebug
     end 
 
     def update
@@ -45,8 +45,12 @@ before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
 
     def destroy
       @song = Song.find(params[:id])
+      if @song.user_id != current_user.id
+        redirect_to song_path
+      else
       @song.destroy
       redirect_to songs_path
+      end 
     end 
 
     private 

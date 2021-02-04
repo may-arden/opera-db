@@ -1,8 +1,8 @@
-<h1>opera name: <%= @opera.name %></h1>
+<h2><%= @opera.name %></h2>
 
-<h2> <% @opera.songs.each do |song| %> </h2>
+<p> <% @opera.songs.each do |song| %> </p>
 
-<h2> song title: <%= link_to song.title, song_path(song.id) %></h2>
+<h3> <%= link_to song.title, song_path(song.id) %></p></h3>
 
 
 <% end %>

@@ -27,6 +27,7 @@ class NotesController < ApplicationController
     @song = Song.find_by_id(params[:song_id])
     @note = Note.find_by_id(params[:id])
     @notes = Note.all 
+    # byebug
   end 
 
   def edit
@@ -40,7 +41,7 @@ class NotesController < ApplicationController
   def update
     @note = Note.find(params[:id])
     @note.update(note_params)
-    byebug
+    # byebug
       if @note.valid? 
         redirect_to note_path
       else 
