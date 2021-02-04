@@ -13,10 +13,6 @@ class SessionsController < ApplicationController
         end 
     end 
 
-    # def new
-    #     @user = User.new
-    # end 
-
     def create
         @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
@@ -24,6 +20,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
+            @error = "please be sure to fill in both fields"
             render :new 
         end 
 

@@ -14,7 +14,6 @@ class NotesController < ApplicationController
       if @note.save
         redirect_to song_path(@song)
       else 
-        @error = "please make sure to fill in both fields"
         render :new
       end 
   end 
@@ -43,7 +42,6 @@ class NotesController < ApplicationController
       if @note.valid? 
         redirect_to note_path
       else 
-        @error = "please make sure to fill in both fields"
         render :edit
       end 
   end 

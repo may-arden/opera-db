@@ -1,5 +1,7 @@
 <h1>login</h1>
 
+<%= @error %>
+<br><br>
 <%= form_for(:user) do |f| %>
   username
   <%= f.text_field :username %>

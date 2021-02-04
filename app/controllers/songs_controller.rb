@@ -18,7 +18,6 @@ class SongsController < ApplicationController
           @song.save
           redirect_to song_path(@song)
         else 
-          @error = "please make sure to fill in both fields"
           render :new 
         end 
     end 
