@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new' 
   delete '/logout' => 'sessions#destroy'
 
+  get '/notes/most_recent' => 'notes#most_recent'
   resources :notes
+
+
+
   resources :operas
 
   resources :songs do

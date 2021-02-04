@@ -30,6 +30,11 @@ class NotesController < ApplicationController
     # byebug
   end 
 
+  def most_recent
+    @note = Note.most_recent
+    render :show
+  end 
+
   def edit
     @note = Note.find_by_id(params[:id])
     if @note.user_id != current_user.id 
