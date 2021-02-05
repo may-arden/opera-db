@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  include NotesHelper 
 
   before_action :redirect_if_not_logged_in, only: [:index, :show]
   before_action :find_note, only: [:show, :edit, :update, :destroy]
@@ -52,16 +53,6 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     redirect_to notes_path
-  end 
-
-  private
-
-  def note_params
-    params.require(:note).permit(:title, :content, :song_id, :user_id)
-  end 
-
-  def find_note
-    @note = Note.find_by_id(params[:id])
   end 
 
 end
