@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    include UsersHelper
 
     def index
         @user = User.find_by_id(params[:id])
@@ -33,14 +34,6 @@ class UsersController < ApplicationController
             session.delete(:user_id)
             redirect_to '/'
         end 
-    end 
- 
-
-    private
-
-    def user_params
-        # take the params, require object that comes through our params and then permit any other params we want
-        params.require(:user).permit(:username, :password)
     end 
 
 end
