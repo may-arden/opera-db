@@ -3,8 +3,8 @@ class Song < ApplicationRecord
   belongs_to :user
   has_many :notes
   has_many :users, through: :notes 
-  validates :title, presence: { message: "please be sure to fill in all of the fields"}
-  validates :opera_id, presence: { message: "please be sure to fill in all of the fields"}
+  validates :title, presence: { message: "cannot be blank"}
+  validates :opera_id, presence: { message: "cannot be blank"}
 
   # presence true, length etc
   # make a partial for errors 
