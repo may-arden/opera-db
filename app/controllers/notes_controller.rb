@@ -2,6 +2,7 @@ class NotesController < ApplicationController
 
   # before_action :redirect_if_not_authorized
   # before_action :redirect_if_not_logged_in
+  before_action :find_note, only: [:show, :edit, :update, :destroy]
 
   def new
     @song = Song.find_by_id(params[:song_id])
@@ -25,7 +26,7 @@ class NotesController < ApplicationController
 
   def show 
     @song = Song.find_by_id(params[:song_id])
-    @note = Note.find_by_id(params[:id])
+    # @note = Note.find_by_id(params[:id])
     @notes = Note.all 
     # byebug
   end 
@@ -36,7 +37,7 @@ class NotesController < ApplicationController
   end 
 
   def edit
-    @note = Note.find_by_id(params[:id])
+    # @note = Note.find_by_id(params[:id])
     if @note.user_id != current_user.id 
       @error = "this is not your note - editing is not permitted"
       render :show
@@ -44,7 +45,7 @@ class NotesController < ApplicationController
   end 
 
   def update
-    @note = Note.find(params[:id])
+    # @note = Note.find(params[:id])
     @note.update(note_params)
     # byebug
       if @note.valid? 
@@ -55,7 +56,7 @@ class NotesController < ApplicationController
   end 
 
   def destroy
-    @note = Note.find(params[:id])
+    # @note = Note.find(params[:id])
     @note.destroy
     redirect_to notes_path
   end 
@@ -66,6 +67,10 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:title, :content, :song_id, :user_id)
+  end 
+
+  def find_note
+    @note = Note.find_by_id(params[:id])
   end 
 
 end

@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
 before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
+before_action :find_song, only: [:show, :edit, :update]
 
     def new
       @song = Song.new
@@ -17,6 +18,7 @@ before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
         else 
           render :new 
         end 
+
     end 
 
     def index
@@ -24,17 +26,12 @@ before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
     end 
 
     def show
-        @song = Song.find(params[:id])
     end 
 
     def edit
-      redirect_if_not_authorized
-      @song = Song.find(params[:id])
-      # byebug
     end 
 
     def update
-      @song = Song.find(params[:id])
       @song.update(song_params)
         if @song.valid? 
           redirect_to song_path
@@ -44,7 +41,6 @@ before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
     end 
 
     def destroy
-      @song = Song.find(params[:id])
       if @song.user_id != current_user.id
         redirect_to song_path
       else
@@ -57,6 +53,10 @@ before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
 
     def song_params
       params.require(:song).permit(:title, opera_attributes: [:name])
+    end 
+
+    def find_song
+      @song = Song.find(params[:id])
     end 
 
 end
