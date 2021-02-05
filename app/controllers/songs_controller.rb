@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
-before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
-before_action :find_song, only: [:show, :edit, :update]
+  include SongsHelper 
+  before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
+  before_action :find_song, only: [:show, :edit, :update]
 
     def new
       @song = Song.new
@@ -47,16 +48,6 @@ before_action :find_song, only: [:show, :edit, :update]
       @song.destroy
       redirect_to songs_path
       end 
-    end 
-
-    private 
-
-    def song_params
-      params.require(:song).permit(:title, opera_attributes: [:name])
-    end 
-
-    def find_song
-      @song = Song.find(params[:id])
     end 
 
 end
