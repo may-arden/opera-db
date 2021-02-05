@@ -1,7 +1,6 @@
 class OperasController < ApplicationController
     before_action :redirect_if_not_logged_in, only: [:show, :index]
 
-
     def show
         @opera = Opera.find(params[:id])
     end 
