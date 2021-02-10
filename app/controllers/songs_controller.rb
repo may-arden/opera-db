@@ -8,9 +8,11 @@ class SongsController < ApplicationController
     end
 
     def create
-      @song = Song.new(song_params)
+      @song = @current_user.songs.build(song_params)
       
-      @song.user_id = session[:user_id]
+      # @song = Song.new(song_params)
+      
+      # @song.user_id = session[:user_id]
       
         if 
           @song.save

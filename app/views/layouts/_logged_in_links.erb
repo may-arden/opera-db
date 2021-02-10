@@ -5,6 +5,7 @@
       <%= link_to "view all operas", operas_path %> |
       <%# <%= link_to "view most recent note", note_path(Note.most_recent.id) %> 
       <%= link_to "view most recent note", notes_most_recent_path %> |
+      <%= link_to "view a random note", notes_random_note_path %> |
       <%= link_to "home", user_path(current_user.id) %> |
       <%= link_to "log out", logout_path, method: :delete %> 
     </div>

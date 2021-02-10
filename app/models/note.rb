@@ -9,6 +9,10 @@ class Note < ApplicationRecord
     self.order('created_at desc').first
   end
 
+  def self.random_note
+    self.all.sample 
+  end 
+
 
 
   

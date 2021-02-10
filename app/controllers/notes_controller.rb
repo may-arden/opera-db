@@ -32,6 +32,11 @@ class NotesController < ApplicationController
     render :show
   end 
 
+  def random_note
+    @note = Note.random_note 
+    render :show 
+  end 
+
   def edit
     if @note.user_id != current_user.id 
       @error = "this is not your note - editing is not permitted"
