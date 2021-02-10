@@ -1,10 +1,12 @@
 <h1> all songs </h1>
 
+<%= form_with url: "/songs/find_specific", method: :get do |form| %>
+<%= form.label :query, "search for" %>
+<%= form.text_field :query %>
+<%= form.submit "search" %>
+<% end %>
 
 <% @songs.each do |song| %>
-
   <p><%= link_to(song.title_and_opera, song_path(song.id) )%></p>
-
-
 <% end %>
 

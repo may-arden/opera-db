@@ -1,5 +1,4 @@
 class SongsController < ApplicationController
-  include SongsHelper 
   before_action :redirect_if_not_logged_in, only: [:new, :index, :show, :edit]
   before_action :find_song, only: [:show, :edit, :update]
 
@@ -24,6 +23,11 @@ class SongsController < ApplicationController
 
     def index
       @songs = Song.all
+    end 
+
+    def find_specific
+      @songs = Song.find_specific(params[:query])
+      render :index 
     end 
 
     def show

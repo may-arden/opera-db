@@ -1,6 +1,4 @@
 class NotesController < ApplicationController
-  include NotesHelper
-  
   before_action :redirect_if_not_logged_in, only: [:index, :show]
   before_action :find_note, only: [:show, :edit, :update, :destroy]
 

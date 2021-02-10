@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    include UsersHelper
 
     def index
         @user = User.find_by_id(params[:id])

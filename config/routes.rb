@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/notes/most_recent' => 'notes#most_recent'
+  get '/songs/find_specific' => 'songs#find_specific'
   resources :notes
 
   resources :operas
